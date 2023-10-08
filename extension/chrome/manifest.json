@@ -1,0 +1,40 @@
+{
+  "author": "i-Nautilus",
+  "name": "Enki Wallet",
+  "description": "Web3 and SSI Wallet",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "icons": {
+    "48": "logo192.gif",
+    "96": "logo192.gif"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "clipboardWrite",
+    "activeTab",
+    "webRequest",
+    "notifications",
+    "scripting"
+  ],
+  "action": {
+    "default_area": "navbar",
+    "default_icon": "logo192.gif",
+    "default_title": "Enki",
+    "default_popup": "index.html"
+  },
+  "options_ui": {
+    "page": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["browser-polyfill.min.js","content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
