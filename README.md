@@ -5,12 +5,10 @@ The idea being an all in one WEB3 Identity solution for use in WEB2/WEB3 authent
 Using the JPM Onyx SSI SDK for the storage, verification and presentation of issued credentials (in the form of JWT Tokens)
 
 The purpose of this project was to show that issued credentials can be stored in a users web browser context using WebExtensions and thus enabling the user to present those credentials easily when authenticating with web based applications. As an alternative or replacement to traditional login username/password flows or social media SSO flows.
-The current UX flow is limited by outstanding issues with certain WebExtension API's namely the openPopup() which is still currently blocked in Chrome and Mozilla browsers.
-https://bugs.chromium.org/p/chromium/issues/detail?id=1245093
+The Wallet Extension injects a content script into every webpage and binds an event listener to any button with a classname of 'web3loginbutton'. When the button is clicked this triggers an event in the background service worker script which launches the Wallet extension.
+The user can then select the credential required to login to the site. On selection the JWT credential is passed back to the content script which in turn submits the login page with an additional Auth header via ajax, to the server for verification and exchanged for a session based auth token.
 
-The current workaround in this project requires the user to pre-select the credential in the WebExtension (which passes it to the background service_worker) where it can then be returned from the injected content script via the onMessage API.
-In future, we hope that the Wallet WebExtension can be opened directly from an event in a webpage (eg button click) and the user selects the credential required then presents it.
-
+The launch button could easily be configured with additional data attributes to customize the flow by passing the 'type' or credential being requested, the submission url etc...
 
 ### Instructions on use:
 1) Clone/Download Repo.

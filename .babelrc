@@ -4,13 +4,13 @@
       The two presets Babel uses by default: es2015, react
   */
   "presets": [
-    "@babel/preset-env", //compiling ES2015+ syntax
+    ["@babel/preset-env", { "useBuiltIns": "usage", "corejs": 3 }], //compiling ES2015+ syntax
     "@babel/preset-react" //for react
   ],
   /*
       Babel's code transformations are enabled by applying plugins (or presets) to your configuration file.
   */
   "plugins": [
-    "@babel/plugin-transform-runtime"
+    ["@babel/plugin-transform-runtime", { "regenerator": false }]
   ]
 }

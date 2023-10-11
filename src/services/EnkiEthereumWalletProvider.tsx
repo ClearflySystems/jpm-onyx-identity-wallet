@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext, createContext} from 'react';
 import { ethers, Wallet } from 'ethers';
 import {useEffectOnce} from "usehooks-ts";
 
@@ -94,7 +94,7 @@ const EnkiEthereumWalletProvider: React.FC<Props> = ({ children }) => {
 };
 
 export const useEnkiEthereumWalletProvider = () => {
-  const context = React.useContext(EnkiEthWalletProviderContext);
+  const context = useContext(EnkiEthWalletProviderContext);
   if (context === undefined) {
     throw new Error('useEnkiEthereumWalletProvider must be used within a EnkiEthereumWalletProvider');
   }
@@ -103,4 +103,4 @@ export const useEnkiEthereumWalletProvider = () => {
 
 export default EnkiEthereumWalletProvider;
 
-export const EnkiEthWalletProviderContext = React.createContext<any>(null);
+export const EnkiEthWalletProviderContext = createContext<any>(null);

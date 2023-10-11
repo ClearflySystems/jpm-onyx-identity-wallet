@@ -15,7 +15,8 @@
     "activeTab",
     "webRequest",
     "notifications",
-    "scripting"
+    "scripting",
+    "tabs"
   ],
   "action": {
     "default_area": "navbar",

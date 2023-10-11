@@ -7,6 +7,7 @@ if(web3Buttons.length) {
 
   web3Buttons[0].addEventListener('click', async (evt) => {
     button = evt.target;
+
     // using pollyfill browser ref - send message to SW
     // pass any data atrributes on button eg VC request type
     await browser.runtime.sendMessage({
@@ -14,11 +15,11 @@ if(web3Buttons.length) {
       data: button.dataset
     }).then(r => {
       console.log(r);
-      if(!r.data){
+      if(!r || !r.data){
         alert('Select and present credential in Wallet first.');
       }else{
         // Post Auth request to self
-        fetch(document.location.href, {
+        fetch(window.location.href, {
           method: "POST",
           headers: {
             "Content-type": "application/json; charset=UTF-8",

@@ -1,4 +1,5 @@
 const prod = process.env.NODE_ENV === 'production';
+const isEnvProductionProfile = prod && process.argv.includes('--profile');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -19,7 +20,7 @@ module.exports = {
         resolve: {
           extensions: ['.ts', '.tsx', '.js', '.json'],
         },
-        use: 'ts-loader',
+        use: ['babel-loader','ts-loader']
       },
       {
         test: /\.css$/,
