@@ -14,7 +14,8 @@ The launch button could easily be configured with additional data attributes to 
 1) Clone/Download Repo.
 2) Web Extension is available in the /extension/chrome directory, and should work in most chrome based browsers. A firefox version to follow.
 3) Navigate your chrome browser to 'chrome://extensions/' in the address bar.
-4) Under 'My extensions' select 'Load Unpacked' and select the project /extension/chrome directory
+4) Under 'My extensions' select 'Load Unpacked' and select the project /extension/chrome directory. Click 'service_worker' to view debug log of background script.
 5) The Wallet plugin should now be available in the Chrome browser toolbar. This demo wallet has no password to unlock it, and currently uses 2 test accounts.
 6) If you want to test with your own accounts, you'll need to build the project and set the private keys/api keys in .env (and take note of the build notes file)
 7) Watch the video for demo of the auth flow. https://streamable.com/7uri7x or https://www.clearfly.co.uk/screen-capture.webm
+8) Demo page for the wallet launcher once extension is installed in browser - https://www.clearfly.co.uk/demo-wallet-login.html - view console log to see returned VP from wallet.
