@@ -17,6 +17,11 @@ if (typeof browser !== 'undefined') {
 
 
 if(chromeBrowser) {
+
+  chromeBrowser.windows.onRemoved.addListener( id => {
+    if(walletWindow && walletWindow.id == id) walletWindow = null;
+  });
+
   chromeBrowser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if(typeof(message) === 'string'){
       message = JSON.parse(message);
@@ -35,7 +40,6 @@ if(chromeBrowser) {
       selectedCredential = null;
 
       chromeBrowser.windows.remove(walletWindow.id);
-      walletWindow = null;
     }
 
     // Handle Call from Content Script to SW

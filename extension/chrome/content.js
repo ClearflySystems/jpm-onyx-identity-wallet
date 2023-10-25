@@ -35,7 +35,7 @@ if(web3Buttons.length) {
             if(confirm('Authentication complete.')){
               window.location.reload();
             }else{
-              window.location.reload();
+              //window.location.reload();
             }
           }else{
             alert('Authentication failed - try again');
