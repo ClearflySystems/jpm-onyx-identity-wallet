@@ -33,29 +33,30 @@ if(chromeBrowser) {
         tab: currentTabId,
       });
       selectedCredential = null;
-      chromeBrowser.tabs.update({ active: false });
+
+      chromeBrowser.windows.remove(walletWindow.id);
+      walletWindow = null;
     }
 
     // Handle Call from Content Script to SW
     else if (message.action === 'OPEN_ENKI_WALLET') {
       console.log('open wallet called');
 
-      chromeBrowser.windows.create({
-        state: 'normal',
-        type: 'popup',
-        width: 360,
-        height: 700,
-        left: 1000,
-        top: 50,
-        url: chromeBrowser.runtime.getURL('/index.html')
-      }).then(r => {
-        //chromeBrowser.tabs.create({
-        //  windowId: r.id,
-        //  url: chromeBrowser.runtime.getURL('/index.html')
-        //});
-        walletWindow = r;
-        console.log(r);
-      });
+      if(walletWindow){
+        chromeBrowser.windows.update(walletWindow.id, {focused:true});
+      }else {
+        chromeBrowser.windows.create({
+          state: 'normal',
+          type: 'popup',
+          width: 360,
+          height: 700,
+          left: 1000,
+          top: 50,
+          url: chromeBrowser.runtime.getURL('/index.html')
+        }).then(r => {
+          walletWindow = r;
+        });
+      }
 
       onSelectResponder = sendResponse;
       currentButton = message.data;
