@@ -17,7 +17,7 @@ The launch button could easily be configured with additional data attributes to 
 4) Under 'My extensions' select 'Load Unpacked' and select the project /extension/chrome directory. Click 'service_worker' to view debug log of background script.
 5) The Wallet plugin should now be available in the Chrome browser toolbar. This demo wallet has no password to unlock it, and currently uses 2 test accounts.
 6) If you want to test with your own accounts, you'll need to build the project and set the private keys/api keys in .env (and take note of the build notes file)
-7) Watch the video for demo of the auth flow. https://streamable.com/7uri7x or https://www.clearfly.co.uk/screen-capture.webm
+7) Watch the video for demo of the auth flow. https://streamable.com/7uri7x or https://www.clearfly.co.uk/screen-capture.webm (note pre-selection of credential not required as shown in video)
 8) NextJS Demo login page for the wallet launcher once extension is installed in browser - https://web3-identity-wallet-auth-example.vercel.app/login.
   a) View console log to see returned VP (presentation) from wallet
   b) Ajax call will set 'authorized' cookie if verify call was successful
